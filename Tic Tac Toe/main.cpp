@@ -27,36 +27,35 @@ int main()
 	} while (playAgain);
 }
 
+// The function to be used to initialise the board
 void initBoard()
 {
-	for (int i = 0; i < 10; i++)
-	{
-		myInstance[i];
-	}
+
 }
 
+// Print the entire board
 void printContent()
 {
-	initBoard();
 	cout << "Welcome to Tic Tac Toe!\n\n";
 	cout << "This is your board. Player 1 is O and Player 2 is X\n\n";
-	cout << "[" << myInstance[0].boxID << "]";
-	cout << "[" << myInstance[0].boxID << "]";
-	cout << "[" << myInstance[0].boxID << "]\n";
-	cout << "[" << myInstance[0].boxID << "]";
-	cout << "[" << myInstance[0].boxID << "]";
-	cout << "[" << myInstance[0].boxID << "]\n";
-	cout << "[" << myInstance[0].boxID << "]";
-	cout << "[" << myInstance[0].boxID << "]";
-	cout << "[" << myInstance[0].boxID << "]\n\n";
+	cout << "[" << e1.boxID << "]";
+	cout << "[" << e2.boxID << "]";
+	cout << "[" << e3.boxID << "]\n";
+	cout << "[" << e4.boxID << "]";
+	cout << "[" << e5.boxID << "]";
+	cout << "[" << e6.boxID << "]\n";
+	cout << "[" << e7.boxID << "]";
+	cout << "[" << e8.boxID << "]";
+	cout << "[" << e9.boxID << "]\n\n";
 }
 
+// Apply the move the player makes
 void applyMove(Box box)
 {
 	if (currentPlayer == 1)
 	{
 		validChoice = true;
-		myInstance[0].boxOwnership = '1';
+		box.boxOwnership = '1';
 		currentPlayer = 2;
 
 		updateBoard();
@@ -64,13 +63,14 @@ void applyMove(Box box)
 	else if (currentPlayer == 2)
 	{
 		validChoice = true;
-		myInstance[0].boxOwnership = '2';
+		box.boxOwnership = '2';
 		currentPlayer = 1;
 
 		updateBoard();
 	}
 }
 
+// Take the player's choice of what move to make
 void takePlayerChoice()
 {
 	string choice = "";
@@ -83,7 +83,7 @@ void takePlayerChoice()
 
 		if (choice == "1")
 		{
-			applyMove(myInstance[0]);
+			applyMove(e1);
 		}
 		else if (choice == "2")
 		{
@@ -125,24 +125,26 @@ void takePlayerChoice()
 	} while (validChoice == false);
 }
 
+// Update the board with the current numbers
 void updateBoard()
 {
 	system("cls");
 	cout << "Welcome to Tic Tac Toe!\n\n";
 	cout << "This is your board. Player 1 is O and Player 2 is X\n\n";
-	cout << "[" << getBoardState(myInstance[0]) << "]";
-	cout << "[" << getBoardState(myInstance[0]) << "]";
-	cout << "[" << getBoardState(myInstance[0]) << "]\n";
-	cout << "[" << getBoardState(myInstance[0]) << "]";
-	cout << "[" << getBoardState(myInstance[0]) << "]";
-	cout << "[" << getBoardState(myInstance[0]) << "]\n";
-	cout << "[" << getBoardState(myInstance[0]) << "]";
-	cout << "[" << getBoardState(myInstance[0]) << "]";
-	cout << "[" << getBoardState(myInstance[0]) << "]\n\n";
+	cout << "[" << getBoardState(e1) << "]";
+	cout << "[" << getBoardState(e2) << "]";
+	cout << "[" << getBoardState(e3) << "]\n";
+	cout << "[" << getBoardState(e4) << "]";
+	cout << "[" << getBoardState(e5) << "]";
+	cout << "[" << getBoardState(e6) << "]\n";
+	cout << "[" << getBoardState(e7) << "]";
+	cout << "[" << getBoardState(e8) << "]";
+	cout << "[" << getBoardState(e9) << "]\n\n";
 
 	takePlayerChoice();
 }
 
+// Get the state of the box on the board and make it into a char to be printed
 char getBoardState(Box box)
 {
 	char p1 = 'O';
@@ -162,6 +164,7 @@ char getBoardState(Box box)
 	}
 }
 
+// Concatenate to an integer
 int toInt(string input)
 {
 	stringstream ss(input);

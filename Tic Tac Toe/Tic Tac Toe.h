@@ -16,6 +16,7 @@ Ownership -
 2 = X
 */
 
+// This is the class for each box
 class Box
 {
     public:
@@ -29,8 +30,7 @@ class Box
         }
 };
 
-Box myInstance[10];
-
+// This is each instance of the Box class
 extern Box e1(0, 0);
 extern Box e2(1, 0);
 extern Box e3(2, 0);
@@ -41,6 +41,7 @@ extern Box e7(6, 0);
 extern Box e8(7, 0);
 extern Box e9(8, 0);
 
+// These are game variables to know how everything is going
 extern int currentPlayer;
 
 extern int winningPlayer;
